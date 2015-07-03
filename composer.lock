@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a71a0dd63d2b060b28e58856e34a383a",
+    "hash": "f9a63c5494ffc35c3a1e3832c1dde1ec",
     "packages": [
         {
             "name": "christiaan/stream-process",
