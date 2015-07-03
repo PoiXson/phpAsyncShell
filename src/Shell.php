@@ -1,6 +1,7 @@
 <?php
 /**
  * phpAsyncShell - Run asynchronous shell commands
+ * (simplifies using stream-process by christiaan)
  *
  * @copyright 2015
  * @license GPL-3
