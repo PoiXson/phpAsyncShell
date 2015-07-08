@@ -12,16 +12,19 @@ namespace pxn\phpAsyncShell;
 
 //use pxn\phpAsyncShell\Shell;
 use pxn\phpAsyncShell\BufferedShell;
+use pxn\phpUtils\Numbers;
 
 class ShellTest extends \PHPUnit_Framework_TestCase {
 
 
 
 	public function testShell_pid() {
+		// grep own pid
 		$shell = new BufferedShell(
-				'pgrep php'
+				'pgrep -x php'
 		);
 		$shell->run();
+		$this->assertTrue(Numbers::isNumber($shell->getLine(0)));
 		$this->assertGreaterThan(0, (int) $shell->getLine(0));
 		unset($shell);
 	}
@@ -40,7 +43,7 @@ class ShellTest extends \PHPUnit_Framework_TestCase {
 		$shell->reset();
 		$this->assertEquals('Line 1', $shell->next());
 		$this->assertEquals('Line 2', $shell->next());
-		$this->assertEquals('Line 3', $shell->next());
+		$this->assertEquals('Line 3', $shell->end());
 		unset($shell);
 	}
 
