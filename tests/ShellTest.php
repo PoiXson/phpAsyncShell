@@ -29,7 +29,7 @@ class ShellTest extends \PHPUnit_Framework_TestCase {
 
 
 	public function testStoredShell() {
-		$shell = new BufferedShell(
+		$shell = BufferedShell::get(
 				'echo -e "Line 1\nLine 2\nLine 3"'
 		);
 		$shell->run();

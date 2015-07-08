@@ -18,6 +18,9 @@ class BufferedShell extends Shell {
 
 
 
+	public static function get($command) {
+		return new self($command);
+	}
 	public function __construct($command,
 			$workingDir=NULL, array $env=NULL) {
 		parent::__construct(

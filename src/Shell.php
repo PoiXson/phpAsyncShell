@@ -22,6 +22,9 @@ class Shell extends StreamProcess {
 
 
 
+	public static function get($command) {
+		return new self($command);
+	}
 	public function __construct(
 			$command, callable $callback=NULL,
 			$workingDir=NULL, array $env=NULL) {
