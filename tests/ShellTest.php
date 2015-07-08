@@ -46,4 +46,25 @@ class ShellTest extends \PHPUnit_Framework_TestCase {
 
 
 
+	public function testShellCallback() {
+		$a = \str_repeat('a', 10);
+		$b = \str_repeat('b', 10);
+		$c = \str_repeat('c', 10);
+		$expected = [ $a, $b, $c ];
+		$index = 0;
+		$shell = Shell::get(\sprintf(
+				'echo -n "%s";sleep 1;echo -n "%s";sleep 1;echo -n "%s"',
+				$a,
+				$b,
+				$c
+		));
+		$shell->setCallback(function($line) use ($expected, &$index) {
+			$expect = $expected[$index++];
+			$this->assertEquals($expect, $line);
+		});
+		$shell->run();
+	}
+
+
+
 }
