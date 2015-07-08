@@ -31,7 +31,7 @@ class ShellTest extends \PHPUnit_Framework_TestCase {
 
 
 
-	public function testStoredShell() {
+	public function testBufferedShell() {
 		$shell = BufferedShell::get(
 				'echo -e "Line 1\nLine 2\nLine 3"'
 		);
@@ -49,7 +49,7 @@ class ShellTest extends \PHPUnit_Framework_TestCase {
 
 
 
-	public function testShellCallback() {
+	public function testShell_Callback() {
 		$a = \str_repeat('a', 10);
 		$b = \str_repeat('b', 10);
 		$c = \str_repeat('c', 10);
